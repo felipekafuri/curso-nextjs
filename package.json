@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "next": "9.5.3",
     "prismic-dom": "^2.2.4",
     "prismic-javascript": "^3.0.2",

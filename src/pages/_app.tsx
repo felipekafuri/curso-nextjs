@@ -1,12 +1,17 @@
-import GlobalStyle from '../styles/GlobalStyle';
+import AppProvider from '@/hooks'
+import { ProtectRoute } from '@/hooks/auth'
+import React from 'react'
+import GlobalStyle from '../styles/GlobalStyle'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <Component {...pageProps} />
+    <AppProvider>
+      <ProtectRoute>
+        <Component {...pageProps} />
+      </ProtectRoute>
       <GlobalStyle />
-    </>
-  );
+    </AppProvider>
+  )
 }
 
-export default MyApp;
+export default MyApp

@@ -8,12 +8,15 @@ import { client } from '@/lib/prismic'
 import PrismicDom from 'prismic-dom'
 import Prismic from 'prismic-javascript'
 import { Document } from 'prismic-javascript/types/documents'
+import { useAuth } from '@/hooks/auth'
 
 interface HomeProps {
   recommendedProducts: Document[]
 }
 
 export default function Home({ recommendedProducts }: HomeProps) {
+  const { signOut } = useAuth()
+
   return (
     <div>
       <SEO
@@ -35,6 +38,8 @@ export default function Home({ recommendedProducts }: HomeProps) {
             </li>
           ))}
         </ul>
+
+        <button onClick={signOut}>Log out</button>
       </section>
     </div>
   )
